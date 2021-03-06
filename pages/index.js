@@ -17,7 +17,7 @@ export default function Home() {
   } = useContext(AppGamesContext);
 
   function addCart(data) {
-    handleProduct([...product,data]);
+    handleProduct([...product, data]);
     handleProdQuant(prodQuant + 1);
     handleFrete(frete + 10);
   }
@@ -50,7 +50,19 @@ export default function Home() {
           </Link>
         </div>
       </main>
-      <div className="flex flex-col pt-10">
+      <div className="pt-12 flex flex-col justify-center items-center">
+        <h5 className="font-sans font-semibold text-gray-700 my-4 mx-auto">
+          Filtrar por
+        </h5>
+        <div className="flex flex-row justify-around items-center w-full">
+          <button className="focus:bg-blue-500 hover:bg-blue-500 focus:text-white hover:text-white py-4 px-2 rounded">
+            Ordem alfabética
+          </button>
+          <button>Preço</button>
+          <button>Popularidade</button>
+        </div>
+      </div>
+      <div className="flex flex-col">
         {Products.map((item) => (
           <div
             className="my-4 flex flex-row items-center border rounded mx-5 p-4"

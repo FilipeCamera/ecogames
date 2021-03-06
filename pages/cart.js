@@ -63,19 +63,19 @@ export default function Cart() {
           <h3 className="font-sans font-semibold text-gray-800 text-base">
             Subtotal:
           </h3>
-          <p className="font-sans font-normal text-gray-800">R${subTotal}</p>
+          <p className="font-sans font-normal text-gray-800">R${subTotal.toFixed(2)}</p>
         </div>
         <div className="flex flex-row items-center justify-between m-3">
           <h5 className="font-sans font-semibold text-gray-800 ml-5 text-sm">
             Frete:
           </h5>
-          <p className="font-sans font-normal text-gray-800">R$ {frete}</p>
+          <p className="font-sans font-normal text-gray-800">R$ {frete.toFixed(2)}</p>
         </div>
         <div className="flex flex-row items-center justify-between m-3">
           <h3 className="font-sans font-semibold text-gray-800 text-xl">
             Total:
           </h3>
-          <p className="font-sans font-normal text-gray-800">R$ {total}</p>
+          <p className="font-sans font-normal text-gray-800">R$ {total.toFixed(2)}</p>
         </div>
       </div>
     </div>
