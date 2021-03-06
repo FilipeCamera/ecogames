@@ -1,18 +1,25 @@
-
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
-import AppGames from "../contexts";
+import AppGamesContext from "../contexts";
 
 import Products from "./api/products.json";
 
-
 export default function Home() {
-  const { product, handleProduct } = useContext(AppGames);
+  const {
+    product,
+    handleProduct,
+    prodQuant,
+    handleProdQuant,
+    frete,
+    handleFrete,
+  } = useContext(AppGamesContext);
 
   function addCart(data) {
-    console.log(product)
+    handleProduct(data);
+    handleProdQuant(prodQuant + 1);
+    handleFrete(frete + 10);
   }
   return (
     <div className="md:content box-border w-full">
@@ -30,7 +37,9 @@ export default function Home() {
       </Head>
       <main className="bg-gray-800 h-4 p-6 flex flex-row justify-end items-center fixed w-full z-10">
         <div className="flex flex-row justify-center items-center">
-          <h5 className="mr-2 font-sans font-semibold text-white">{}</h5>
+          <h5 className="mr-2 font-sans font-semibold text-white">
+            {prodQuant}
+          </h5>
           <Link href="/cart">
             <Image
               src="/cart-icon.svg"
@@ -66,7 +75,7 @@ export default function Home() {
               </div>
               <button
                 className="mt-2 flex items-center justify-center bg-blue-700 hover:bg-blue-800 p-2 rounded font-semibold text-sm text-white"
-                onClick={() => addCart({name: item.name, price: item.price})}
+                onClick={() => addCart({ name: item.name, price: item.price })}
               >
                 Adicionar ao carrinho
               </button>

@@ -1,16 +1,25 @@
-import {createContext, useState} from 'react';
+import { createContext, useState } from "react";
 
+const AppGamesContext = createContext();
 
-const AppGames = createContext(null);
-
-export function Provider({children}){
-  const [product, handleProduct] = useState([{name: 'teste', price: 'teste'}]);
-  
-  return(
-    <AppGames.Provider value={product, handleProduct}>
+export const Provider = ({ children }) => {
+  const [product, handleProduct] = useState([]);
+  const [prodQuant, handleProdQuant] = useState(0);
+  const [frete, handleFrete] = useState(0);
+  return (
+    <AppGamesContext.Provider
+      value={{
+        product,
+        handleProduct,
+        prodQuant,
+        handleProdQuant,
+        frete,
+        handleFrete,
+      }}
+    >
       {children}
-    </AppGames.Provider>
-  )
-}
+    </AppGamesContext.Provider>
+  );
+};
 
-export default AppGames;
+export default AppGamesContext;
