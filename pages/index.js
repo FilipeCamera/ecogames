@@ -55,7 +55,7 @@ export default function Home() {
           Filtrar por
         </h5>
         <div className="flex flex-row justify-around items-center w-full">
-          <button className="focus:bg-blue-500 hover:bg-blue-500 focus:text-white hover:text-white py-4 px-2 rounded">
+          <button className="active:bg-blue-500 hover:bg-blue-500 active:text-white hover:text-white py-4 px-2 rounded">
             Ordem alfabética
           </button>
           <button>Preço</button>
