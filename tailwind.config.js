@@ -13,7 +13,8 @@ module.exports = {
     colors: {
       gray: colors.coolGray,
       white: colors.white,
-      blue: colors.blue
+      blue: colors.blue,
+      red: colors.red
     },
     fontFamily: {
       sans: ["Poppins", "sans-serif"],
