@@ -1,12 +1,20 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import AppGamesContext from "../contexts";
 
 import Products from "./api/products.json";
 
 export default function Home() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    async function loadProducts(){
+      const resp = Products;
+      setProducts(resp);
+    }
+    loadProducts();
+  }, [])
   const {
     product,
     handleProduct,
@@ -20,6 +28,48 @@ export default function Home() {
     handleProduct([...product, data]);
     handleProdQuant(prodQuant + 1);
     handleFrete(frete + 10);
+  }
+
+  function Filter(type){
+    if(type === 'alfabetica'){
+      const newProducts = Array.from(products);
+      newProducts.sort(function compare(a, b) {
+        if(a.name.substr(0) > b.name.substr(0)){
+          return 1
+        }
+        if(a.name.substr(0) < b.name.substr(0)){
+          return -1
+        }
+        return 0
+      })
+      setProducts(newProducts);
+    }
+    if(type === 'preco'){
+      const newProducts = Array.from(products);
+      newProducts.sort(function compare(a, b) {
+        if(a.price > b.price){
+          return 1
+        }
+        if(a.price < b.price){
+          return -1
+        }
+        return 0
+      })
+      setProducts(newProducts);
+    }
+    if(type === 'score'){
+      const newProducts = Array.from(products);
+      newProducts.sort(function compare(a, b) {
+        if(a.score < b.score){
+          return 1
+        }
+        if(a.score > b.score){
+          return -1
+        }
+        return 0
+      })
+      setProducts(newProducts);
+    }
   }
   return (
     <div className="md:content box-border w-full">
@@ -55,15 +105,19 @@ export default function Home() {
           Filtrar por
         </h5>
         <div className="flex flex-row justify-around items-center w-full">
-          <button className="active:bg-blue-500 hover:bg-blue-500 active:text-white hover:text-white py-4 px-2 rounded">
+          <button onClick={() => Filter('alfabetica')} className="focus:bg-blue-500 hover:bg-blue-500 focus:text-white hover:text-white py-4 px-2 rounded">
             Ordem alfabética
           </button>
-          <button>Preço</button>
-          <button>Popularidade</button>
+          <button onClick={() => Filter('preco')} className="focus:bg-blue-500 hover:bg-blue-500 focus:text-white hover:text-white py-4 px-2 rounded">
+            Preço
+          </button>
+          <button onClick={() => Filter('score')} className="focus:bg-blue-500 hover:bg-blue-500 focus:text-white hover:text-white py-4 px-2 rounded">
+            Popularidade
+          </button>
         </div>
       </div>
       <div className="flex flex-col">
-        {Products.map((item) => (
+        {products.map((item) => (
           <div
             className="my-4 flex flex-row items-center border rounded mx-5 p-4"
             key={item.id}
