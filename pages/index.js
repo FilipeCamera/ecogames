@@ -10,6 +10,7 @@ export default function Home() {
       <Head>
         <title>EcoGames</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
@@ -23,16 +24,25 @@ export default function Home() {
       </main>
       <div>
         {Products.map(item => (
-          <div>
+          <div className={styles.boxProduct}>
             <div>
-              <Image src={`/${item.image}`} width='150px' height='120px'/>
+              <Image src={`/${item.image}`} width='180px' height='180px'/>
             </div>
-            <div></div>
+            <div>
+              <div>
+                <h4 className={styles.productTitle}>{item.name}</h4>
+              </div>
+              <div>
+                <h3 className={styles.productPreco}>Preço: R$ {item.price}</h3>
+                <p className={styles.productScore}>Score: {item.score}</p>
+              </div>
+              <button className={styles.buttonAddCart}>Adicionar ao carrinho</button>
+            </div>
           </div>
         ))}
       </div>
       <footer className={styles.footer}>
-        <p className={styles.footerTitle}>Filipe Camera</p>
+        <p className={styles.footerTitle}>EcoGames</p>
       </footer>
     </div>
   );
