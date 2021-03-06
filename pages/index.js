@@ -17,7 +17,7 @@ export default function Home() {
   } = useContext(AppGamesContext);
 
   function addCart(data) {
-    handleProduct(data);
+    handleProduct([...product,data]);
     handleProdQuant(prodQuant + 1);
     handleFrete(frete + 10);
   }
