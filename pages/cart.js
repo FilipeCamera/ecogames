@@ -16,7 +16,7 @@ export default function Cart() {
 
   function removeCart(index) {
     const array = Array.from(product);
-    array.splice(index, 1)
+    array.splice(index, 1);
     handleProduct(array);
     handleProdQuant(prodQuant - 1);
     handleFrete(frete - 10);
@@ -29,7 +29,7 @@ export default function Cart() {
     if (subTotal > 250) {
       handleFrete(0);
     } else {
-      handleFrete(product.length * 10)
+      handleFrete(product.length * 10);
     }
 
     setTotal(subTotal + frete);
@@ -63,19 +63,25 @@ export default function Cart() {
           <h3 className="font-sans font-semibold text-gray-800 text-base">
             Subtotal:
           </h3>
-          <p className="font-sans font-normal text-gray-800">R${subTotal.toFixed(2)}</p>
+          <p className="font-sans font-normal text-gray-800">
+            R${subTotal.toFixed(2)}
+          </p>
         </div>
         <div className="flex flex-row items-center justify-between m-3">
           <h5 className="font-sans font-semibold text-gray-800 ml-5 text-sm">
             Frete:
           </h5>
-          <p className="font-sans font-normal text-gray-800">R$ {frete.toFixed(2)}</p>
+          <p className="font-sans font-normal text-gray-800">
+            R$ {frete.toFixed(2)}
+          </p>
         </div>
         <div className="flex flex-row items-center justify-between m-3">
           <h3 className="font-sans font-semibold text-gray-800 text-xl">
             Total:
           </h3>
-          <p className="font-sans font-normal text-gray-800">R$ {total.toFixed(2)}</p>
+          <p className="font-sans font-normal text-gray-800">
+            R$ {total.toFixed(2)}
+          </p>
         </div>
       </div>
     </div>

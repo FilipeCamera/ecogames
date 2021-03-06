@@ -1,6 +1,5 @@
-import { Provider } from '../contexts';
-import '../styles/tailwind.css';
-
+import { Provider } from "../contexts";
+import "../styles/tailwind.css";
 
 function MyApp({ Component, pageProps }) {
   return (
