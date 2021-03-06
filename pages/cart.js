@@ -10,19 +10,19 @@ export default function Cart() {
         <h1 className='text-gray-900 font-sans font-bold text-2xl mt-12 ml-3'>Cart</h1>
         <div className='flex flex-row items-center justify-between m-3'>
           <h4></h4>
-          <p></p>
+          <p className='font-sans font-normal text-gray-800'></p>
         </div>
         <div className='flex flex-row items-center justify-between m-3'>
-          <h3 className=''>Subtotal:</h3>
-          <p>R$ 200,00</p>
+          <h3 className='font-sans font-semibold text-gray-800 text-base'>Subtotal:</h3>
+          <p className='font-sans font-normal text-gray-800'>R$ 200,00</p>
         </div>
         <div className='flex flex-row items-center justify-between m-3'>
-          <h5>Frete:</h5>
-          <p>R$ 200,00</p>
+          <h5 className='font-sans font-semibold text-gray-800 ml-5 text-sm'>Frete:</h5>
+          <p className='font-sans font-normal text-gray-800'>R$ 200,00</p>
         </div>
         <div className='flex flex-row items-center justify-between m-3'>
-          <h3>Total:</h3>
-          <p>R$ 200,00</p>
+          <h3 className='font-sans font-semibold text-gray-800 text-xl'>Total:</h3>
+          <p className='font-sans font-normal text-gray-800'>R$ 200,00</p>
         </div>
       </div>
     </div>
