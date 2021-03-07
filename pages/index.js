@@ -106,7 +106,7 @@ export default function Home() {
         </h5>
         <select
           onClick={(e) => Filter(e.target.value)}
-          className="focus:ring-blue-500 focus:border-blue-500 h-full py-1 pl-2 pr-7 border bg-white text-gray-500 sm:text-sm rounded-md"
+          className="mt-1 block w-full sm:w-56 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
         >
           <option value="alfabetica">Ordem alfabética</option>
           <option value="preco">Preço</option>
