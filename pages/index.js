@@ -104,26 +104,14 @@ export default function Home() {
         <h5 className="font-sans font-semibold text-gray-700 my-4 mx-auto">
           Filtrar por
         </h5>
-        <div className="flex flex-row justify-around items-center w-full">
-          <button
-            onClick={() => Filter("alfabetica")}
-            className="focus:bg-blue-500 hover:bg-blue-500 focus:text-white hover:text-white py-4 px-2 rounded"
-          >
-            Ordem alfabética
-          </button>
-          <button
-            onClick={() => Filter("preco")}
-            className="focus:bg-blue-500 hover:bg-blue-500 focus:text-white hover:text-white py-4 px-2 rounded"
-          >
-            Preço
-          </button>
-          <button
-            onClick={() => Filter("score")}
-            className="focus:bg-blue-500 hover:bg-blue-500 focus:text-white hover:text-white py-4 px-2 rounded"
-          >
-            Popularidade
-          </button>
-        </div>
+        <select
+          onClick={(e) => Filter(e.target.value)}
+          className="focus:ring-blue-500 focus:border-blue-500 h-full py-1 pl-2 pr-7 border bg-white text-gray-500 sm:text-sm rounded-md"
+        >
+          <option value="alfabetica">Ordem alfabética</option>
+          <option value="preco">Preço</option>
+          <option value="score">Popularidade</option>
+        </select>
       </div>
       <div className="flex flex-col">
         {products.map((item) => (
